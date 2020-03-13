@@ -1,0 +1,1 @@
+Blog backend as detailed by the rust fullstack book.
