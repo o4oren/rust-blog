@@ -12,7 +12,7 @@ COPY migrations ./migrations
 ENV MYSQL_HOST=mysql
 ENV MYSQL_USER=dbuser
 ENV MYSQL_PASSWORD=password
-RUN apt-get update && apt-get install mysql-client -y
+RUN apt-get update && apt-get install default-mysql-client -y
 EXPOSE 8998
 CMD ["diesel migration run && blog-actix"]
 
