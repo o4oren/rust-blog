@@ -1,1 +1,1 @@
-CREATE TABLE users
+DROP DATABASE blog;
