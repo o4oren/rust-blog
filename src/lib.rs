@@ -5,8 +5,8 @@ extern crate serde_derive;
 use actix_web::{middleware, App, HttpServer};
 use diesel::prelude::*;
 use diesel::r2d2::{self, ConnectionManager};
-
-type Pool = r2d2::Pool<ConnectionManager<SqliteConnection>>; // type alias for the pool
+use diesel::mysql::MysqlConnection;
+type Pool = r2d2::Pool<ConnectionManager<MysqlConnection>>; // type alias for the pool
 
 mod errors;
 mod models;
@@ -23,7 +23,7 @@ impl Blog {
     }
 
     pub fn run(&self, database_url: String) -> std::io::Result<()> {
-        let manager = ConnectionManager::<SqliteConnection>::new(database_url);
+        let manager = ConnectionManager::<MysqlConnection>::new(database_url);
         let pool = r2d2::Pool::builder()
             .build(manager)
             .expect("Failed to create pool.");

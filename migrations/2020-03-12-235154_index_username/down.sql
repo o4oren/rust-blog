@@ -1,1 +1,1 @@
-DROP INDEX username_unique_idxsql
+DROP INDEX username_unique_idx;
